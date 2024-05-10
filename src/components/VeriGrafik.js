@@ -3,10 +3,6 @@ import React, { useEffect, useState } from 'react';
 function VeriGrafik({ arrayA, arrayB, _kontrol }) {
     const [chartData, setChartData] = useState([]);
 
-    // console.log("array A --> " + arrayA);
-    // console.log("array B --> " + arrayB);
-    // console.log("_kontrol --> " + _kontrol);
-
     useEffect(() => {
         const updateChartData = () => {
             const dataPoints = _kontrol ? arrayA : arrayB;
@@ -25,7 +21,7 @@ function VeriGrafik({ arrayA, arrayB, _kontrol }) {
                         className="bar"
                         style={{
                             height: Math.abs(dataPoint) * 2 + 'px',
-                            backgroundColor: dataPoint > 0 ? 'green' : dataPoint < 0 ? 'red' : 'gray',
+                            backgroundColor: dataPoint > chartData[index-1] ? 'green' : dataPoint < chartData[index-1] ? 'red' : 'gray',
                             left: index * 30 + 'px'
                         }}
                     ></div>
