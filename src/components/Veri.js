@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import VeriGoster from './VeriGoster';
 import VeriGrafik from './VeriGrafik';
 
@@ -6,8 +6,6 @@ function Veri() {
   const [arrayA, setArrayA] = useState([]);
   const [arrayB, setArrayB] = useState([]);
   const [_kontrol, set_kontrol] = useState(false);
-
-  // console.log(_kontrol);
 
   return (
     <div className="veri">
@@ -28,9 +26,6 @@ function Veri() {
         setArrayB(_arrayB);
 
         set_kontrol(kontrol);
-
-        console.log("arrayA --> " + arrayA);
-        console.log("arrayB --> " + arrayB);
       })} />
 
       <VeriGrafik arrayA={arrayA} arrayB={arrayB} _kontrol={_kontrol} />
