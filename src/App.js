@@ -1,7 +1,5 @@
 import './App.css';
-import VeriYazdir from './components/VeriYazdir';
 import Veri from './components/Veri';
-import VeriGoster from './components/VeriGoster';
 
 function App() {
   return (

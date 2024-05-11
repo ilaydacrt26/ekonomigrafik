@@ -22,12 +22,13 @@
 
 .chart-container {
   width: 400px;
-  height: 200px;
-  border: 1px solid #000;
+  height: 300px;
+  border: none;
   position: relative;
   overflow-x: hidden;
   margin-top: 50px;
   padding: 20px;
+  background-color: rgb(228, 225, 225);
 }
 
 #exchangeRate {
