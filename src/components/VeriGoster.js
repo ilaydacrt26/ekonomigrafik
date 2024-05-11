@@ -8,30 +8,33 @@ function VeriGoster({
   const [B, setB] = useState(10);
   const [kontrol, setKontrol] = useState(false);
 
-  const oran = () => {
+  const rate = () => {
     return Math.random() * 10;
   }
 
   const random = () => {
-    var randomdeger = Math.random() * 200 - 100;
+    var randomdeger = (Math.random() - 0.5);
     return randomdeger;
   };
 
   const sureBelirleme = () => {
-    let süre = Math.random() * 2.5 + 0.5;
+    let duration = Math.random() * 2.5 + 0.5;
     setTimeout(() => {
-        para();
-    }, süre * 1000);
+        money();
+    }, duration * 1000);
   };
 
   useEffect(() => {
     sureBelirleme();
   }, [A]);
 
-  const para = () => {
-    const randomValue = A + A * (random() / 100);
+  const money = () => {
+    let randomValue = A + A * (random());
+    if(randomValue < 1) {
+      randomValue += 1;
+    }
     setA(randomValue);
-    setB(randomValue * oran());
+    setB(randomValue * rate());
     onChangePara(A, B, kontrol);
   };
 
@@ -41,7 +44,7 @@ function VeriGoster({
 
   return (
     <div>
-      <VeriYazdir kontrol={kontrol} oran={oran()} />
+      <VeriYazdir kontrol={kontrol} rate={rate()} />
       <button className="veriButton" onClick={degistir}>
         Değiştir
       </button>
