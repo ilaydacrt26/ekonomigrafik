@@ -13,7 +13,7 @@ function VeriGrafik({ arrayA, arrayB, _kontrol }) {
     }, [_kontrol, arrayA, arrayB]);
 
     return (
-        <div className="chart-container">
+        <div className="chart-container" style={{height: Math.max(...chartData) * 2.25}}>
             <div id="chart">
                 {chartData.map((dataPoint, index) => (
                     <div
