@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import VeriYazdir from './VeriYazdir';
 
-function VeriGoster({
-  onChangePara
-}) {
-  const [A, setA] = useState(10);
-  const [B, setB] = useState(10);
-  const [kontrol, setKontrol] = useState(false);
+function VeriGoster({onChangePara}) {
+  const [A, setA] = useState(1);
+  const [B, setB] = useState(1);
+  const [kontrol, setKontrol] = useState(true);
 
-  const rate = () => {
-    return Math.random() * 10;
+  const oran = () => {
+      let random = (Math.random())
+      return random;
   }
 
   const random = () => {
-    var randomdeger = (Math.random() - 0.5);
-    return randomdeger;
-  };
+    let yon = oran();
+    var randomdeger = (Math.random()*100).toFixed(0); // sıfırlanıp durmasın diye 100ü dahil etmedim.
+    if(yon > 0.5){
+      return randomdeger;
+    }
+    return (-1 * randomdeger);
+  }; 
 
   const sureBelirleme = () => {
     let duration = Math.random() * 2.5 + 0.5;
@@ -26,16 +29,17 @@ function VeriGoster({
 
   useEffect(() => {
     sureBelirleme();
-  }, [A]);
+  }, [A,B]);
 
   const money = () => {
-    let randomValue = A + A * (random());
-    if(randomValue < 1) {
-      randomValue += 1;
+    let deger = random();
+    console.log("deger : " , deger); 
+    if(kontrol){
+      setA(A + A * deger/100);
+    }else{
+      setB(B + B * deger/100);
     }
-    setA(randomValue);
-    setB(randomValue * rate());
-    onChangePara(A, B, kontrol);
+    onChangePara(A, B, kontrol)
   };
 
   const degistir = () => {
@@ -44,7 +48,7 @@ function VeriGoster({
 
   return (
     <div>
-      <VeriYazdir kontrol={kontrol} rate={rate()} />
+      <VeriYazdir kontrol={kontrol} A={A} B={B} />
       <button className="veriButton" onClick={degistir}>
         Değiştir
       </button>
