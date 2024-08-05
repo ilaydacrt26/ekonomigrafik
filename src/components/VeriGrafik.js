@@ -8,7 +8,6 @@ function VeriGrafik({ arrayA, arrayB, _kontrol }) {
             const dataPoints = _kontrol ? arrayA : arrayB;
             setChartData(dataPoints);
         };
-
         updateChartData();
     }, [_kontrol, arrayA, arrayB]);
 
@@ -20,8 +19,8 @@ function VeriGrafik({ arrayA, arrayB, _kontrol }) {
                         key={index}
                         className="bar"
                         style={{
-                            height: Math.abs(dataPoint) * 2 + 'px',
                             backgroundColor: dataPoint > chartData[index-1] ? 'green' : dataPoint < chartData[index-1] ? 'red' : 'gray',
+                            height: Math.abs(dataPoint)*2 + 'px',
                             left: index * 30 + 'px'
                         }}
                     ></div>

@@ -1,10 +1,9 @@
 import React from 'react';
 
-function VeriYazdir({kontrol, rate }) {
+function VeriYazdir({kontrol, A, B }) {
   const text = kontrol
-    ? `1 A = ${rate.toFixed(2)} B`
-    : `1 B = ${(1/rate).toFixed(2)} A`;
-
+    ? `1 A = ${(A/B)} B`
+    : `1 B = ${(B/A)} A`;
   return <p id="values">{text}</p>;
 }
 
